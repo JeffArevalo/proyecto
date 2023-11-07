@@ -27,7 +27,7 @@ export default function Balance() {
     return (
         <div className="space-y-12 max-w-3xl mx-auto mt-32">
             <div className="border border-gray-900/10 p-16">
-            {getAllTransacccion}
+                
             </div>
         </div>
     );
