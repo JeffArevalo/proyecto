@@ -6,8 +6,8 @@ const prisma = new PrismaClient();
 export async function GET(request: Request) {
     try {
         const { searchParams } = new URL(request.url);
-        const cuentas = searchParams.get('Cuenta') || "";
-        const categoria = searchParams.get('Categoria') || "";
+        const cuentas = searchParams.get('cuenta') || "";
+        const categoria = searchParams.get('tipo') || "";
         const fecha = searchParams.get('fecha') || new Date();
         const monto = searchParams.get('monto') || 0.00;
         const newCuenta = await prisma.balance.create({
