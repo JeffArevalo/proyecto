@@ -46,11 +46,14 @@ const Card = () => {
         event.preventDefault();
         const cuenta = document.querySelector("input[name='cuentas']")?.getAttribute("value");
         const categoria = document.querySelector("input[name='categoria']")?.getAttribute("value");
-        const monto = document.querySelector("input[name='monto']")?.getAttribute("value");
+        let monto = document.querySelector("input[name='monto']")?.getAttribute("value");
         const date = new Date(value.startDate)
         const fechaISO = date.toISOString();
         console.log(fechaISO);
         console.log(monto);
+        if (cuenta?.includes("IVA")){
+            monto = (parseFloat(montoValue) * 0.13).toString()
+        }
         console.log(categoria);
         console.log(cuenta)
         await fetch(`/transaccion/create?cuenta=${cuenta}&tipo=${categoria}&fecha=${fechaISO}&monto=${monto}`, {
